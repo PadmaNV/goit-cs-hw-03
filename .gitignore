@@ -1,0 +1,4 @@
+.venv/
+mongodb_data/
+postgres_data/
+app/

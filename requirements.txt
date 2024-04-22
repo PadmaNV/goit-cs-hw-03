@@ -1,0 +1,4 @@
+connect==0.2
+logging==0.4.9.6
+psycopg2==2.9.9
+python-dotenv==1.0.1

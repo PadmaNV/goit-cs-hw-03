@@ -1,0 +1,35 @@
+version: '3.11.5'
+
+services:
+  postgres:
+    image: postgres:latest
+    build: .
+    environment:
+      POSTGRES_DB: NVI_database_sql
+      POSTGRES_USER: Padma
+      POSTGRES_PASSWORD: Qwerty123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_DATABASE: NVI_database_mongo
+      MONGO_INITDB_ROOT_USERNAME: Padma
+      MONGO_INITDB_ROOT_PASSWORD: Qwerty123
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb_data:/data/db
+
+  python_app:
+    image: python:latest
+    volumes:
+      - ./app:/app
+    depends_on:
+      - postgres
+      - mongodb
+    command: bash -c "pip install psycopg2 pymongo && python /app/your_script.py"
