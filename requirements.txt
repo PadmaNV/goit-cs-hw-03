@@ -1,5 +1,8 @@
 bson==0.5.10
 dnspython==2.6.1
+Faker==24.11.0
+psycopg2==2.9.9
 pymongo==4.7.0
 python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
 six==1.16.0
