@@ -14,12 +14,8 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
 
   mongodb:
-    image: mongo:6
+    image: mongo:latest
     container_name: mongodb
-    environment:
-      MONGO_INITDB_DATABASE: NVI_database_mongo
-      MONGO_INITDB_ROOT_USERNAME: Padma
-      MONGO_INITDB_ROOT_PASSWORD: Qwerty123
     ports:
       - "27017:27017"
     volumes:
